@@ -15,7 +15,7 @@ require('dotenv').config()
 function App() {
 
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
-  const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
+  const stripePromise = loadStripe("pk_test_R12MXgm77An40gqpmiTmltIf");
   
   const setUser = (token) => {
     if (token) {
