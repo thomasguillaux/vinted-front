@@ -10,11 +10,12 @@ import Login from './containers/Login';
 import Signup from './containers/Signup'
 import Cookies from 'js-cookie'
 import { useState } from 'react';
+require('dotenv').config()
 
 function App() {
 
   const [userToken, setUserToken] = useState(Cookies.get("userToken") || null);
-  const stripePromise = loadStripe("pk_test_R12MXgm77An40gqpmiTmltIf");
+  const stripePromise = loadStripe(process.env.STRIPE_PUBLIC_KEY);
   
   const setUser = (token) => {
     if (token) {
